@@ -1,2 +1,2 @@
 # components-generator
-It's a component generator
+It's a components generator
