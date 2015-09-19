@@ -1,2 +1,2 @@
 # components-generator
-Es un generador de componente por defecto
+It's a component generator
