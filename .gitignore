@@ -4,8 +4,4 @@ bower_components/
 mocks/
 node_modules/
 scripts/
-stylesheets/
-index.html
-app.js
-main.css
 .sass-cache/
