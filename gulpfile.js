@@ -31,6 +31,14 @@ gulp.task('coffee', function() {
         .pipe($.livereload( server ));
 });
 
+gulp.task('scripts', function(){
+    return gulp.src('src/scripts/*.js')
+        .pipe($.plumber())
+        .pipe(gulp.dest('./scripts'))
+        .pipe(browserSync.reload({stream: true}))
+        .pipe($.livereload( server ));
+});
+
 gulp.task('compass', function() {
     return gulp.src('./src/stylesheets/*.sass')
         .pipe($.plumber())
@@ -43,38 +51,26 @@ gulp.task('compass', function() {
         .pipe($.livereload( server ));;
 });
 
-gulp.task('demo', function() {
-    var jadeDemo = gulp.src('demo/index.jade')
+gulp.task('css', function(){
+    return gulp.src('src/stylesheets/*.css')
         .pipe($.plumber())
-        .pipe($.jade({
-            pretty: true
-        }))
-        .pipe(gulp.dest('./'))
-        .pipe(browserSync.reload({stream: true}));
-    var sassDemo = gulp.src('demo/main.sass')
-        .pipe($.plumber())
-        .pipe($.compass({
-            css: './',
-            sass: 'demo'
-        }))
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('./stylesheets'))
         .pipe(browserSync.reload({stream: true}))
-        .pipe( $.livereload( server ) );
-    var coffeeDemo = gulp.src('demo/app.coffee')
-        .pipe($.plumber())
-        .pipe(coffeelint())
-        .pipe(coffeelint.reporter())
-        .pipe($.coffee({bare: true}).on('error', $.util.log))
-        .pipe(gulp.dest('./'))
-        .pipe(browserSync.reload({stream: true}))
-        .pipe( $.livereload( server ) );
-    var mocksDemo = gulp.src('demo/mocks/*.json')
-        .pipe($.plumber())
-        .pipe(gulp.dest('./mocks'))
-        .pipe(browserSync.reload({stream: true}))
-        .pipe( $.livereload( server ) );
-    return merge(jadeDemo, sassDemo, coffeeDemo, mocksDemo)
+        .pipe($.livereload( server ));
+});
 
+gulp.task('html', function(){
+    var mainPage = gulp.src('src/index.html')
+        .pipe($.plumber())
+        .pipe(gulp.dest('./'))
+        .pipe(browserSync.reload({stream: true}))
+        .pipe($.livereload( server ));
+    var webPages = gulp.src('src/views/*.html')
+        .pipe($.plumber())
+        .pipe(gulp.dest('./views'))
+        .pipe(browserSync.reload({stream: true}))
+        .pipe($.livereload( server ));
+    return merge(mainPage, webPages)
 });
 
 gulp.task('jade', function () {
@@ -95,14 +91,16 @@ gulp.task('jade', function () {
     return merge(testJade, jadeComponent)
 });
 
-gulp.task('build', ['coffee', 'compass', 'demo', 'jade']);
+gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade']);
 
 gulp.task('server', function (callback) {
     runSequence('build','browser-sync');
     gulp.watch('src/scripts/*.coffee',['coffee', reload]);
-    gulp.watch('src/stylesheets/*.sass',['compass', reload])
-    gulp.watch('src/stylesheets/*.sass',['demo', reload]);
-    gulp.watch('demo/**/*.*', ['demo', reload]);
+    gulp.watch('src/scripts/*.js',['scripts', reload]);
+    gulp.watch('src/stylesheets/*.sass',['compass', reload]);
+    gulp.watch('src/stylesheets/*.css',['css', reload]);
+    gulp.watch('src/index.html',['html', reload]);
+    gulp.watch('src/views/*.html', ['html', reload]);
     gulp.watch('src/jade/*.jade', ['jade', reload]);
 });
 

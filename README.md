@@ -1,2 +1,2 @@
-# components-generator
-It's a components generator
+# school-environment
+Environment develop to students
