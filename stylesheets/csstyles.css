@@ -1,0 +1,98 @@
+.lists {
+    display: inline-block;
+}
+
+
+.color-element-list li:first-child{
+    color: green;
+}
+
+.color-element-list li:last-child{
+    color: red;
+}
+
+.par-number li:nth-child(2n){
+    color: brown;
+}
+
+.odd-number li:nth-child(odd){
+    color: #6699cc;
+}
+
+.select-number li:nth-child(4){
+    color: #000088;
+}
+
+.animations {
+    display: inline;
+}
+
+.box {
+    -webkit-transition: color 1s ease, padding 1s linear;
+    -moz-transition: color 1s ease, padding 1s linear;
+    -ms-transition: color 1s ease, padding 1s linear;
+    -o-transition: color 1s ease, padding 1s linear;
+    transition: color 1s ease, padding 1s linear;
+    padding: 30px;
+    background: green;
+    border: 1px solid red;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 300px;
+    margin-top: 290px;
+
+}
+
+.box:hover {
+    color: yellow;
+    padding: 20px;
+}
+
+.box2{
+    left:30px;
+    position:relative;
+    border-radius: 20px;
+    background-color:#ddd;
+    width:200px;
+    height:100px;
+    padding:4px;
+    -moz-animation-name: animacion1;
+    -moz-animation-duration: 4s;
+    -webkit-animation-name: animacion1;
+    -webkit-animation-duration: 4s;
+    -o-animation-name: animacion1;
+    -o-animation-duration: 4s;
+}
+
+@-moz-keyframes animacion1 {
+    from {
+        left:30px;
+        background-color:#ddd;
+    }
+    to {
+        left:300px;
+        background-color:#ff0;
+    }
+}
+
+@-webkit-keyframes animacion1 {
+    from {
+        left:30px;
+        background-color:#ddd;
+    }
+    to {
+        left:300px;
+        background-color:#ff0;
+    }
+}
+
+@-o-keyframes animacion1 {
+    from {
+        left:30px;
+        background-color:#ddd;
+    }
+    to {
+        left:300px;
+        background-color:#ff0;
+    }
+}
