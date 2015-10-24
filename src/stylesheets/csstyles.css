@@ -25,6 +25,7 @@
 
 .animations {
     display: inline;
+    position: absolute;
 }
 
 .box {
@@ -36,10 +37,12 @@
     padding: 30px;
     background: green;
     border: 1px solid red;
+    position: absolute;
+    top: 20px;
+    right: 10px;
     display: inline-block;
     vertical-align: top;
     margin-left: 300px;
-    margin-top: 290px;
 
 }
 

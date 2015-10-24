@@ -1,0 +1,102 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    padding: 20px;
+}
+
+.main-menu {
+    background: #271E17;
+    position: fixed;
+    width: 100%;
+}
+
+.main-menu ul{
+    list-style-type: none;
+    margin: 0;
+}
+
+.main-menu ul li{
+    display: inline-block;
+    border-right: 2px solid #fff;
+}
+
+.main-menu ul li:first-child{
+    border-left: 2px solid #fff;
+}
+
+.main-menu ul li:first-child:hover{
+    border-left: 2px solid #2f6fad;
+}
+
+.main-menu ul li button{
+    background: transparent;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.main-menu ul li:hover{
+    border-right: 2px solid #2f6fad;
+}
+
+.main-menu ul li:hover button{
+    color: #2f6fad;
+}
+
+.parrafo1,.parrafo2 {
+    background: #00d6b2;
+    border-radius: 4px;
+    color: #ffff4f;
+    margin-bottom: 20px;
+}
+
+.parrafo1 {
+    padding: 10px;
+    position: relative;
+    top: 73px;
+    width: 300px;
+
+
+}
+
+.parrafo2 {
+    margin-top: 100px;
+    padding: 20px;
+    width: 400px;
+}
+
+.padre{
+    background: #ffff4f;
+    border: 1px solid #000088;
+    padding: 20px;
+}
+
+.padre .hijo{
+    border: inherit;
+    background: #B94A48;
+    padding: inherit;
+}
+
+.con-overflow {
+    border: 2px solid #000088;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-top: 20px;
+    width: 60px;
+    height: 100px
+}
+
+.sin-overflow {
+    border: 2px solid #000088;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-top: 20px;
+    text-overflow: ellipsis;
+    width: 60px;
+    height: 100px;
+}
+

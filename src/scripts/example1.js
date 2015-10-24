@@ -10,7 +10,7 @@ function startEvents(){
 
 
 function changeBackgroundOver(){
-    document.getElementsByClassName("caja")[0].style.backgroundColor = "yellow";
+    document.getElementsByClassName("caja")[0].style.borderColor = "yellow";
 }
 
 function changeBackgroundOut(){
