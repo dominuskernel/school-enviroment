@@ -40,7 +40,7 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('compass', function() {
-    return gulp.src('./src/stylesheets/*.sass')
+    return gulp.src('./src/stylesheets/*.scss')
         .pipe($.plumber())
         .pipe(browserSync.reload({stream: true}))
         .pipe($.compass({
