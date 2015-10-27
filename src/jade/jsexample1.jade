@@ -1,0 +1,15 @@
+include ../mixins/head
+body
+    .content
+        button.sum(type="button") Sumar
+        div
+            button.change-color(type="button") Change text color
+            span.text The text change the color
+
+        div
+            input.house(type="text", placeholder="Enter house")
+            button.check(type="submit") Send
+        .elements
+
+    include ../mixins/scripts
+

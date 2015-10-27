@@ -2,6 +2,7 @@
   "name": "components-generator",
   "version": "0.0.0",
   "dependencies": {
+    "jquery":"~2"
   },
   "devDependencies": {}
 }

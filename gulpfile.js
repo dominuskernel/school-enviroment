@@ -40,7 +40,7 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('compass', function() {
-    return gulp.src('./src/stylesheets/*.scss')
+    var stylesFile = gulp.src('./src/stylesheets/*.scss')
         .pipe($.plumber())
         .pipe(browserSync.reload({stream: true}))
         .pipe($.compass({
@@ -48,7 +48,17 @@ gulp.task('compass', function() {
             sass: 'src/stylesheets'
         }))
         .pipe(gulp.dest('./stylesheets'))
-        .pipe($.livereload( server ));;
+        .pipe($.livereload( server ));
+    var mainFile = gulp.src('./src/main.scss')
+        .pipe($.plumber())
+        .pipe(browserSync.reload({stream: true}))
+        .pipe($.compass({
+            css: './',
+            sass: 'src/'
+        }))
+        .pipe(gulp.dest('./'))
+        .pipe($.livereload( server ));
+    return merge(stylesFile,mainFile);
 });
 
 gulp.task('css', function(){
@@ -70,25 +80,17 @@ gulp.task('html', function(){
         .pipe(gulp.dest('./views'))
         .pipe(browserSync.reload({stream: true}))
         .pipe($.livereload( server ));
-    return merge(mainPage, webPages)
+    return merge(mainPage, webPages);
 });
 
 gulp.task('jade', function () {
-    var testJade = gulp.src('src/jade/*.jade')
-        .pipe($.plumber())
-        .pipe($.jade({
-            pretty: true
-        })).pipe( gulp.dest('./bower_components/dmk-menu/templates/'))
-        .pipe(browserSync.reload({stream: true}))
-        .pipe( $.livereload( server ) );
-    var jadeComponent = gulp.src('src/jade/*.jade')
+    return gulp.src('src/jade/*.jade')
         .pipe($.plumber())
         .pipe($.jade({
             pretty: true
         })).pipe( gulp.dest('templates/'))
         .pipe(browserSync.reload({stream: true}))
         .pipe( $.livereload( server ) );
-    return merge(testJade, jadeComponent)
 });
 
 gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade']);
@@ -97,7 +99,8 @@ gulp.task('server', function (callback) {
     runSequence('build','browser-sync');
     gulp.watch('src/scripts/*.coffee',['coffee', reload]);
     gulp.watch('src/scripts/*.js',['scripts', reload]);
-    gulp.watch('src/stylesheets/*.sass',['compass', reload]);
+    gulp.watch('src/main.scss',['compass',reload]);
+    gulp.watch('src/stylesheets/*.scss',['compass', reload]);
     gulp.watch('src/stylesheets/*.css',['css', reload]);
     gulp.watch('src/index.html',['html', reload]);
     gulp.watch('src/views/*.html', ['html', reload]);
