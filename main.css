@@ -131,7 +131,7 @@ body {
 }
 @media (min-device-width: 800px) {
   .box {
-    border: 1px solid #dadada;
+    border: 5px solid #dadada;
     color: #555555;
     width: 50%;
   }

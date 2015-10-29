@@ -3,5 +3,5 @@ bower_components/
 .idea/
 mocks/
 node_modules/
-scripts/
+/scripts
 .sass-cache/
