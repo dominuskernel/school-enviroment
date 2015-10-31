@@ -6,6 +6,7 @@ var gulp            = require('gulp'),
     del         = require("del"),
     merge       = require('merge-stream'),
     path        = require('path'),
+    php         = require('gulp-connect-php')
     reload      = browserSync.reload,
     runSequence = require('run-sequence'),
     tinylr      = require('tiny-lr'),
@@ -17,6 +18,13 @@ gulp.task('browser-sync', function() {
         server: {
             baseDir: "./"
         }
+    });
+});
+
+gulp.task('php-connect-server', function() {
+    php.server({base:"backend", hostname:"school.dev"});
+    gulp.watch('**/*.php').on('change', function () {
+        browserSync.reload();
     });
 });
 
@@ -96,7 +104,7 @@ gulp.task('jade', function () {
 gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade']);
 
 gulp.task('server', function (callback) {
-    runSequence('build','browser-sync');
+    runSequence('build','browser-sync','php-connect-server');
     gulp.watch('src/scripts/*.coffee',['coffee', reload]);
     gulp.watch('src/scripts/*.js',['scripts', reload]);
     gulp.watch('src/main.scss',['compass',reload]);
