@@ -50,12 +50,12 @@ gulp.task('scripts', function(){
 gulp.task('compass', function() {
     var stylesFile = gulp.src('./src/stylesheets/*.scss')
         .pipe($.plumber())
-        .pipe(browserSync.reload({stream: true}))
         .pipe($.compass({
             css: './stylesheets',
             sass: 'src/stylesheets'
         }))
         .pipe(gulp.dest('./stylesheets'))
+        .pipe(browserSync.reload({stream: true}))
         .pipe($.livereload( server ));
     var mainFile = gulp.src('./src/main.scss')
         .pipe($.plumber())
@@ -65,6 +65,7 @@ gulp.task('compass', function() {
             sass: 'src/'
         }))
         .pipe(gulp.dest('./'))
+        .pipe(browserSync.reload({stream: true}))
         .pipe($.livereload( server ));
     return merge(stylesFile,mainFile);
 });
@@ -113,6 +114,7 @@ gulp.task('server', function (callback) {
     gulp.watch('src/index.html',['html', reload]);
     gulp.watch('src/views/*.html', ['html', reload]);
     gulp.watch('src/jade/*.jade', ['jade', reload]);
+    gulp.watch('src/mixins/*.jade', ['jade',reload]);
 });
 
 gulp.task('default', ['server']);

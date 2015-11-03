@@ -2,21 +2,26 @@
  * Created by promodominus on 31/10/15.
  */
 $(document).ready(function(){
-    var nums = [{
-        num1: 5,
-        num2: 10,
-    }];
+    $(".send").click(function(){
+        var nums = {
+            num1: '5',
+            num2: '10'
+        };
 
-    $.ajax({
-        type: "POST",
-        url: 'http://school.dev:8000/getdata.php',
-        data: nums,
-        success: function (){
-            console.log("Se ha enviado los datos con exito");
-        },
-        dataType: "json"
+        $.ajax({
+            type: "POST",
+            url: 'http://school.dev:8000/getdata.php',
+            crossDomain: true,
+            data: nums,
+            dataType: "html",
+            success: function (msg){
+                $(".nums").html(msg);
+            },
+            error: function(error){
+                console.log(error);
+            }
+        });
     });
-
 
     $.ajax({
         url: 'http://school.dev:8000/index.php',
