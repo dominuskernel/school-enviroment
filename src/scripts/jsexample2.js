@@ -28,8 +28,8 @@ $(document).ready(function(){
         data: "",
         dataType: "text",
         success: function(data){
-            var objs = data
-            console.log(data)
+            var objs = data;
+            console.log(data);
             $(".things").text(objs);
         },
         error: function(error){

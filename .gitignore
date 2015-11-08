@@ -5,3 +5,4 @@ mocks/
 node_modules/
 /scripts
 .sass-cache/
+/nbproject/private/

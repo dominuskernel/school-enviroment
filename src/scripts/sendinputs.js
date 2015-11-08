@@ -1,6 +1,7 @@
 /**
  * Created by promodominus on 2/11/15.
  */
+
 $(document).ready(function(){
     $(".navbar-nav").children().click(function(){
        $(".navbar-nav").find('li.active').removeClass('active');
@@ -14,9 +15,22 @@ $(document).ready(function(){
             var obj = data;
             $('tbody').html(obj);
             $(".del").click(function(){
-                var name = $(this).parent().siblings()[0];
-                name = name.textContent
-                console.log(name);
+                var email = {
+                    email :$(this).parent().siblings()[1].textContent
+                };
+                console.log(email.email)
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://school.dev:/deleteData.php',
+                    data: email,
+                    dataType: "text",
+                    success: function(msg){
+                        location.reload();
+                    },
+                    error: function(){
+                        console.log("No se ha recibido los datos correctamente");
+                    }
+                });
             });
         },
         error: function(){
