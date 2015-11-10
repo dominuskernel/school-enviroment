@@ -1,4 +1,5 @@
 include ../mixins/head
+    // page description, language,
 body
     nav.navbar.navbar-inverse
         .container-fluid
@@ -8,7 +9,6 @@ body
             .collapse.navbar-collapse
                 ul.nav.navbar-nav
                     li
-                    li
                         a(href="#") Home
                     li.active
                         a(href="#") Items
@@ -16,6 +16,7 @@ body
                         a(href="#") About
                     li
                         a(href="#") Contact
+
 
     .content
         .col-lg-10
@@ -38,4 +39,5 @@ body
 
 
     include ../mixins/scripts
-
+// good scripts have to be always included at the botton of the html page. Because when the search engine load the html code
+    //it would load the script before the page, interrupting al the java script functin up to when the html is loaded.
