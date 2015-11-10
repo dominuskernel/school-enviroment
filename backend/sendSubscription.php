@@ -1,5 +1,5 @@
 <?php
-    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Origin: *');// it says that there is a connection with 2 different domains: 1.school.dev:8000 (backend) 2. localhost:3000(front end)
     $database = new mysqli("localhost","root","prueba","example");
     if($database->connect_error){
         die("No conecta a la base de datos");
