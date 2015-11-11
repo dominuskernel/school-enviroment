@@ -5,3 +5,4 @@ mocks/
 node_modules
 .sass-cache/
 /nbproject/private/
+src/scripts/sendinputs2.js
