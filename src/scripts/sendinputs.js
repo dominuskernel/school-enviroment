@@ -18,18 +18,20 @@ $(document).ready(function(){
         dataType: 'json',
         success: function(sendSubs){ //there was a connection with the backend and it can respond this connection and this data correspond to the data type assigned (Json in this case)
             var obj = sendSubs;
-            $('tbody').html(obj);
+            $('tbody').html(obj);// it adds the html variable of 'tbody'
             $(".del").click(function(){
-                var email = {
-                    email:$(this).parent().siblings()[1].textContent,
+                var email = { // (this) it remembers where you have realized the event which could be a click event or a hover one.
+
+                    email:$(this).parent().siblings()[1].textContent,   //parent it's the html element above the button, in this case the row, the row itself has several cells at the same level
                     action: "delete"
-                };
-                console.log(email.email)
-                $.ajax({
-                    type: 'POST',
-                    url: 'http://school.dev:8000/subscriptions.php',
-                    data: email,
-                    dataType: "text",
+                };     // which are identified as siblings; siblings are counted looking the father and incrementally; [1] is the chosen sibling;
+                // .textcontent is a method that turns the html in text.
+                console.log(email.email);
+                $.ajax({//says me that i am interacting with another element that in this case in on another server which is the backend server (PHP)
+                    type: 'POST', // post will relate always to send data
+                    url: 'http://school.dev:8000/deleteData.php', // its the backend destination for the delete function
+                    data: email,// it's the object that I am going to send to the backend.
+                    dataType: "text",// is the answer of the backend after my send
                     success: function(msg){
                         location.reload();
                     },

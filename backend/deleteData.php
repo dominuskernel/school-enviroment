@@ -1,7 +1,7 @@
 <?php
     header('Access-Control-Allow-Origin: *');
-    if(isset($_POST['email'])){
-        $database = new mysqli('localhost','root','prueba','example');
+    if(isset($_POST['email'])){//isset verifies that the back end has receive something with 'email' name; which is yes in this case as specified in the senddata.js in the email object
+        $database = new mysqli('localhost','root','prueba','example'); //
         if($database->connect_error){
             die("No conecta a la base de datos");
         }
