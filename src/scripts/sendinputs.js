@@ -29,7 +29,7 @@ $(document).ready(function(){
                 console.log(email.email);
                 $.ajax({//says me that i am interacting with another element that in this case in on another server which is the backend server (PHP)
                     type: 'POST', // post will relate always to send data
-                    url: 'http://school.dev:8000/deleteData.php', // its the backend destination for the delete function
+                    url: 'http://school.dev:8000/subscriptions.php', // its the backend destination for the delete function
                     data: email,// it's the object that I am going to send to the backend.
                     dataType: "text",// is the answer of the backend after my send
                     success: function(msg){
