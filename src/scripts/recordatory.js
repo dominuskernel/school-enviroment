@@ -16,11 +16,13 @@ $(document).ready(function(){
         country: countries[1]
     }
 
-    for(var i=0; i<countries.length;i++){
-        $('.countries').append(countries[i]+",");
+    for(var i=0; i<countries.length;i++){ //for= menas that will be executing until the process end. i= element index; i++= says to add the value
+        $('.countries').append(countries[i]+","); //append= means to add
     }
     
-    $('.name').text(person.name);
+    $('.name').text(person.name);//$ is a selector of classes in html (which is coded in thicase with jade)
+    $('.age').text(person.age);
+    $('.name').append(" "+countries[2]);
 });
 
 

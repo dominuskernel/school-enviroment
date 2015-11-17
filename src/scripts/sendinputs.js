@@ -8,7 +8,7 @@ $(document).ready(function(){
         $(this).addClass('active');
     });// if there are no interaction with database there is no backend or php code to add.
     var action = {
-        action: "get"
+        action: "get"//when the backend send the data to the frontend to list below.
     }
     
     $.ajax({ // ajax help to obtain-send data that not necessary it's a database, it can be also some data of a another page.
@@ -23,7 +23,7 @@ $(document).ready(function(){
                 var email = { // (this) it remembers where you have realized the event which could be a click event or a hover one.
 
                     email:$(this).parent().siblings()[1].textContent,   //parent it's the html element above the button, in this case the row, the row itself has several cells at the same level
-                    action: "delete"
+                    action: "delete"//delete the element you have inout
                 };     // which are identified as siblings; siblings are counted looking the father and incrementally; [1] is the chosen sibling;
                 // .textcontent is a method that turns the html in text.
                 console.log(email.email);
@@ -51,7 +51,7 @@ $(document).ready(function(){
         var subsciption = {
             name: dataForm[0].value,
             email: dataForm[1].value,
-            action: "post"
+            action: "post" /// when we fill the form and click submit
         };
 
         $.ajax({
