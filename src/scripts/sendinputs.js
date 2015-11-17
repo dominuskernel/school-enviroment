@@ -67,4 +67,27 @@ $(document).ready(function(){
             }
         });
     });
+    
+    $(".search").click(function(){
+        var search = {
+            search: $(".search-input").val()
+        };
+        $.ajax({
+            type: 'POST',
+            url: 'http://school.dev:8000/search.php',
+            data: search,
+            dataType: 'json',
+            success: function(data){
+                $.ajaxSetup({
+                    cache: false
+                });
+                var obj = data;
+                $('tbody').html(obj);        
+            },
+            error: function(){
+                alert('La base de datos no responde, consulte con el hosting');
+            }
+        });
+        
+    });
 });

@@ -1,7 +1,7 @@
 <?php
     header('Access-Control-Allow-Origin: *');
     class Subcriptions{
-        private $database;
+        protected $database;
         
         public function __construct($url,$user,$pwd,$db){
             $this->database = new mysqli($url,$user,$pwd,$db);

@@ -1,5 +1,4 @@
 include ../mixins/head
-    // page description, language,
 body
     nav.navbar.navbar-inverse
         .container-fluid
@@ -28,13 +27,18 @@ body
                     label(for="email") Email
                     input.form-control(type="email" id="email" placeholder="name@example.com" name="email")
                 button.btn.btn-default.send-email(type="submit") Subscription
-
+                    
             .subcriptors
                 table.table
                     thead
                         tr
                             th Name
                             th Email
+                            th.col-lg-6
+                                .input-group.input-group-sm
+                                    input.form-control.search-input(type="text", placeholder="Search for name")
+                                    span.input-group-btn
+                                        button.btn.btn-default.search(type="button") GO!
                     tbody
 
 
