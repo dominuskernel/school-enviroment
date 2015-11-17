@@ -68,9 +68,9 @@ $(document).ready(function(){
         });
     });
     
-    $(".search").click(function(){
+    $(".search").click(function(){ //$ SELECTOR . means class
         var search = {
-            search: $(".search-input").val()
+            search: $(".search-input").val()//.val evaluate what is written in the input (what you have typed)
         };
         $.ajax({
             type: 'POST',
@@ -78,9 +78,6 @@ $(document).ready(function(){
             data: search,
             dataType: 'json',
             success: function(data){
-                $.ajaxSetup({
-                    cache: false
-                });
                 var obj = data;
                 $('tbody').html(obj);        
             },
