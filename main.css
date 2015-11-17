@@ -7478,3 +7478,12 @@ body {
 .color2 {
   color: #cc0000;
 }
+
+.name {
+  color: #2ca2af;
+  margin-right: 20px;
+}
+
+.age {
+  background-color: #007020;
+}
