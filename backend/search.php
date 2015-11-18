@@ -1,12 +1,12 @@
 <?php
     header('Access-Control-Allow-Origin: *');
-    include './subscriptions.php';
+    include './subscriptions.php'; //take me all the class to inherit them and use them for the below.
     
-    class Search extends Subcriptions{
-        private $search_database;
-        public function __construct($url,$user,$pwd,$db){
+    class Search extends Subcriptions{//class search has been set by F. could have been another think. Extends means that all the methods of Sunscriotion class can be used also for search class.
+        private $search_database; //attribute which  you are going to use in every method. private means that we can access that the function just from search class.
+        public function __construct($url,$user,$pwd,$db){ // __construct when you call the class execute the method
             parent::__construct($url,$user,$pwd,$db);
-            $this->search_database = $this->database;
+            $this->search_database = $this->database; //
         }
         
         public function search($search){
