@@ -1,14 +1,10 @@
 <?php
     header('Access-Control-Allow-Origin: *');
     class Subcriptions{
-        protected $database;
+        protected $database; //it's an attribute. it select the variable which will be used for all the methods inside.
 
-        public function __construct($url,$user,$pwd,$db){
-            $this->database = new mysqli($url,$user,$pwd,$db);
-            private $database;//it's an attribute. it select the variable which will be used for all the methods inside.
-            // private = makes impossible to access this attribute
-            public function __construct($url,$user,$pwd,$db){//// $ in php is an argument
-             $this->database = new mysqli($url,$user,$pwd,$db); //$this means pass this to database and it is specified in the if function.this define the attribute database
+        public function __construct($url,$user,$pwd,$db){ // $ in php is an argument
+            $this->database = new mysqli($url,$user,$pwd,$db); //$this means pass this to database and it is specified in the if function.this define the attribute database
             if($this->database->connect_error){
                 die("No conecta a la base de datos");
             }

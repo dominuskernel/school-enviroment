@@ -2,6 +2,7 @@
 bower_components/
 .idea/
 mocks/
+phpmyadmin/
 node_modules
 .sass-cache/
 /nbproject/private/
