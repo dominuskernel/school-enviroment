@@ -1,0 +1,42 @@
+include ../mixins/head
+body
+    nav.navbar.navbar-inverse
+        .container-fluid
+            .navbar-header
+                a.navbar-brand(href="#") Title company
+
+            .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="#") Home
+                    li.active
+                        a.dropdown-toggle(href="#"
+                        data-toggle="dropdown"
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded="false") Items
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href="#") Html
+                            li
+                                a(href="#") CSS3
+                            li
+                                a(href="#") Javascript
+                            li
+                                a(href="#") PHP
+                    li
+                        a(href="#") About
+                    li
+                        a(href="#") Contact
+
+    .content
+        ul.list-group
+        button.btn.btn-primary.alert-message Alert
+        button.btn.btn-success.add-text Add text
+
+        .show-text
+
+    include ../mixins/scripts
+
+

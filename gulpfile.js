@@ -102,7 +102,15 @@ gulp.task('jade', function () {
         .pipe( $.livereload( server ) );
 });
 
-gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade']);
+gulp.task('json',function(){
+    return gulp.src('src/data/*.json')
+        .pipe($.plumber())
+        .pipe( gulp.dest('data/'))
+        .pipe(browserSync.reload({stream: true}))
+        .pipe( $.livereload( server ) );
+});
+
+gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade','json']);
 
 gulp.task('server', function (callback) {
     runSequence('build','browser-sync','php-connect-server');
