@@ -19,8 +19,11 @@
   },
   {
     "li":"<li class='list-group-item'>Example 7</li>"
+<<<<<<< HEAD
   },
   {
     "li":"<li class='list-group-item'>Example 8</li>"
+=======
+>>>>>>> fd117050f9f1a99b8bc9a6f47a5bb9859c3bf1d8
   }
 ]
