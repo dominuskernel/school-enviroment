@@ -1,16 +1,16 @@
-$(document).ready(function() {
-    var ControllerWeb = {
-        init: function(){
-            ControllerWeb.getJSON();
+$(document).ready(function() { //read the doom and page structure to execute js
+    var ControllerWeb = {//controllerweb is an 'object'
+        init: function(){// init recall all the methods of the page
+            ControllerWeb.getJSON();//initi and get json, show alert, add text are methods;
             ControllerWeb.showAlert();
             ControllerWeb.addText();
         },
         getJSON : function(){
-            $.ajax({
+            $.ajax({//ajax obtain and send code from and to other places.
                 type: 'GET',
                 url: '../data/data.json',
                 data: "",
-                datatype: "json",
+                datatype: "json",//data type is what the ajax is expected to receive. It will match the url
                 success: function (object) {
                     for (var i = 0; i < object.length; i++) {
                         $(".list-group").append(object[i].li);
