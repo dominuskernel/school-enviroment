@@ -1,15 +1,19 @@
 include ../mixins/head
 body(ng-controller="ExampleWeb")
+  // the controller "ExampleWeb" is the same specifies at the botton of app.js (row28) .controller('ExampleWeb',ExampleWeb);
   h2 Angular Example
   button.btn.btn-primary(type="button", ng-click="showList=!showList") Mostrar Lista
   div(ng-show="showList==true")
     ul.list-group
       li(ng-repeat="element in list.li") {{element}}
+      //ng-repeat menas repeat me the content until the all the elements are displayed
   h3 Input    
   input(type="text", ng-model="greet")
-  p {{greet}} 
-  
+  //ng-model means real time changes in the input field
+  p {{greet}}
+  //angular scopes are countersigned by {{ then specified into the .js file
   script(type="text/ng-template" id="alert.html")
+    //ng-template it's including a template
     .alert(style="background-color:#fa39c3;color:white" role="alert")
       div(ng-transclude)
 
