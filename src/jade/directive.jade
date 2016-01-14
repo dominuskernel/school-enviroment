@@ -1,0 +1,10 @@
+include ../mixins/head
+body
+  h3 Carousel with directive
+  div(ng-controller="LoadCarousel")
+    button(type="button" ng-click="changeSlide('blog')") blog
+    button(type="button" ng-click="changeSlide('programming')") programming
+    button(type="button" ng-click="changeSlide('westport')") westport
+
+    dmk-carousel(dmk-slides="slides" dmk-interval="interval" dmk-no-wrap="noWrap")
+  include ../mixins/scripts  

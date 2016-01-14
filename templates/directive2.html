@@ -7,7 +7,13 @@
   </head>
 </html>
 <body>
-  <h1>Recordatory</h1><span class="countries"></span><br/><span class="name"></span><span class="age"></span>
+  <div ng-controller="LoadDataMenu" class="content-desktop">
+    <h1>dmk-menu</h1>
+    <h3>Horizontal menu</h3>
+    <div dmk-menu="dmk-menu" dmk-icon="iconDropdown" dmk-type="horizontal" dmk-options="dmkOptions" dmk-search-first="search1" dmk-search-second="search2" dmk-place-holder-first="placeHolder" dmk-place-holder-second="placeHolder" dmk-name-option="optionName" dmk-url="urlOption"></div>
+    <p style="margin: 50px">Scope: {{optionName}}</p>
+    <p style="margin: 50px">Scope: {{urlOption}}</p>
+  </div>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
   <script src="../bower_components/angular/angular.min.js"></script>

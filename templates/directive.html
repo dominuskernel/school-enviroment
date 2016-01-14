@@ -7,7 +7,13 @@
   </head>
 </html>
 <body>
-  <h1>Recordatory</h1><span class="countries"></span><br/><span class="name"></span><span class="age"></span>
+  <h3>Carousel with directive</h3>
+  <div ng-controller="LoadCarousel">
+    <button type="button" ng-click="changeSlide('blog')">blog</button>
+    <button type="button" ng-click="changeSlide('programming')">programming</button>
+    <button type="button" ng-click="changeSlide('westport')">westport</button>
+    <dmk-carousel dmk-slides="slides" dmk-interval="interval" dmk-no-wrap="noWrap"></dmk-carousel>
+  </div>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
   <script src="../bower_components/angular/angular.min.js"></script>

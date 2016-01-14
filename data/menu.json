@@ -1,0 +1,52 @@
+[
+  {
+    "name":"option1",
+    "isActive":"false"
+  },{
+    "name":"option2",
+    "isActive":"false",
+    "dropdowns":[
+      {
+        "name":"dropdown1",
+        "isActive":"false"
+      },{
+        "name":"dropdown2",
+        "isActive":"false"
+      }
+    ]
+  },{
+    "name":"option3",
+    "isActive":"false"
+  },{
+    "name":"option4",
+    "isActive":"false",
+    "dropdowns":[
+      {
+        "name":"dropdown1",
+        "isActive":"false"
+      },{
+        "name":"dropdown2",
+        "isActive":"false",
+        "subOptions": [
+          {
+            "name":"subOption1",
+            "isActive":"false",
+            "url":"http://www.google.com"
+          },{
+            "name":"subOption2",
+            "isActive":"false",
+            "url":"http://www.angularjs.org"
+          }
+        ]
+      }
+      ,{
+        "name":"dropdown3",
+        "isActive":"false"
+      }
+    ]
+  },{
+    "name":"option5",
+    "isActive":"false"
+  }
+
+]
