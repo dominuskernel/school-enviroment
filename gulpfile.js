@@ -110,7 +110,15 @@ gulp.task('json',function(){
         .pipe( $.livereload( server ) );
 });
 
-gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade','json']);
+gulp.task('images',function(){
+    return gulp.src('src/images/*')
+      .pipe($.plumber())
+      .pipe(gulp.dest('images/'))
+      .pipe(browserSync.reload({stream: true}))
+      .pipe( $.livereload( server ) );
+});
+
+gulp.task('build', ['coffee', 'scripts', 'compass', 'css', 'html' ,'jade','json','images']);
 
 gulp.task('server', function (callback) {
     runSequence('build','browser-sync','php-connect-server');
@@ -123,6 +131,7 @@ gulp.task('server', function (callback) {
     gulp.watch('src/views/*.html', ['html', reload]);
     gulp.watch('src/jade/*.jade', ['jade', reload]);
     gulp.watch('src/mixins/*.jade', ['jade',reload]);
+    gulp.watch('src/images/*',['images', reload]);
 });
 
 gulp.task('default', ['server']);

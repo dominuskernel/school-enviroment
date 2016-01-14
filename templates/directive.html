@@ -1,9 +1,5 @@
 
-<!--Created by promodominus on 31/10/15.
--->
 <html lang="en" ng-app="app">
-  <!--ng-app="app" tells the browser that the `angular application in this web is called App and this is mentinoed at the botton o// of the app.js fine
-  -->
   <head>
     <meta charset="UTF-8"/>
     <title>Css Styles</title>
@@ -11,10 +7,12 @@
   </head>
 </html>
 <body>
-  <div class="content">
-    <button type="button" class="send">Send</button>
-    <div class="nums"></div>
-    <div class="things"></div>
+  <h3>Carousel with directive</h3>
+  <div ng-controller="LoadCarousel">
+    <button type="button" ng-click="changeSlide('blog')">blog</button>
+    <button type="button" ng-click="changeSlide('programming')">programming</button>
+    <button type="button" ng-click="changeSlide('westport')">westport</button>
+    <dmk-carousel dmk-slides="slides" dmk-interval="interval" dmk-no-wrap="noWrap"></dmk-carousel>
   </div>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>

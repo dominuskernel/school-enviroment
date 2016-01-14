@@ -1,0 +1,31 @@
+.dmk-menu
+    div(class="menu-container-{{dmkType}}")
+        ul.option-container
+            li(ng-repeat="option in dmkOptions track by $index"
+                ng-click="getNameOption(option.name, option.url, option.dropdowns, $index);"
+                class="option-nav-{{$index + 1}}"
+                ng-class="{'active':option.isActive == true}")
+                span.text {{option.name}}
+                span(ng-if="option.dropdowns != undefined && dmkType=='vertical'" class="{{dmkIcon}} glyphicon glyphicon-chevron-right")
+                span(ng-if="option.dropdowns != undefined && dmkType!='vertical'" class="{{dmkIcon}} glyphicon glyphicon-chevron-bottom")
+                .dropdown-container(ng-if="option.isActive == true && option.dropdowns")
+                    ul.dropdown-list
+                        li.search(ng-if="dmkSearchFirst == true"
+                           ng-click="$event.stopPropagation()")
+                            input.search-input(type="search" placeholder="{{dmkPlaceHolderFirst}}" ng-model="$parent.search1.name")
+                        li(ng-repeat="dropdown in option.dropdowns | filter: search1 track by $index"
+                            ng-click="getNameDropdown(dropdown.name, dropdown.url, dropdown.subOptions, $parent.$index, $index); $event.stopPropagation()"
+                            class="dropdown-nav-{{$index + 1}}"
+                            ng-class="{'active':dropdown.isActive == true}")
+                            span.text2 {{dropdown.name}}
+                            span(ng-if="dropdown.subOptions && (dmkType=='vertical' || dmkType=='horizontal')" class="{{dmkIcon}}-2 glyphicon glyphicon-chevron-right")
+                            span(ng-if="dropdown.subOptions && dmkType=='mobile'" class="{{dmkIcon}}-2 glyphicon glyphicon-triangle-bottom")
+                            .submenu-container(ng-if="dropdown.isActive == true && dropdown.subOptions")
+                                ul.submenu-list
+                                    li.search(ng-if="dmkSearchSecond == true"
+                                    ng-click="$event.stopPropagation()")
+                                        input.search-input(type="search" ng-model="$parent.search2.name" placeholder="{{dmkPlaceHolderSecond}}")
+                                    li(ng-repeat="suboption in dropdown.subOptions | filter: search2 track by $index"
+                                        ng-click="getNameSubOption(suboption.name, suboption.url, $parent.$index, $index); $event.stopPropagation()"
+                                        class = "suboption-nav-{{$index + 1}}")
+                                        span.text3 {{suboption.name}} 

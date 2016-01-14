@@ -1,9 +1,5 @@
 
-<!--Created by promodominus on 31/10/15.
--->
 <html lang="en" ng-app="app">
-  <!--ng-app="app" tells the browser that the `angular application in this web is called App and this is mentinoed at the botton o// of the app.js fine
-  -->
   <head>
     <meta charset="UTF-8"/>
     <title>Css Styles</title>
@@ -11,10 +7,12 @@
   </head>
 </html>
 <body>
-  <div class="content">
-    <button type="button" class="send">Send</button>
-    <div class="nums"></div>
-    <div class="things"></div>
+  <div ng-controller="LoadDataMenu" class="content-desktop">
+    <h1>dmk-menu</h1>
+    <h3>Horizontal menu</h3>
+    <div dmk-menu="dmk-menu" dmk-icon="iconDropdown" dmk-type="horizontal" dmk-options="dmkOptions" dmk-search-first="search1" dmk-search-second="search2" dmk-place-holder-first="placeHolder" dmk-place-holder-second="placeHolder" dmk-name-option="optionName" dmk-url="urlOption"></div>
+    <p style="margin: 50px">Scope: {{optionName}}</p>
+    <p style="margin: 50px">Scope: {{urlOption}}</p>
   </div>
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>

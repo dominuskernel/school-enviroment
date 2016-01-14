@@ -1,0 +1,26 @@
+
+<div class="dmk-menu">
+  <div class="menu-container-{{dmkType}}">
+    <ul class="option-container">
+      <li ng-repeat="option in dmkOptions track by $index" ng-click="getNameOption(option.name, option.url, option.dropdowns, $index);" ng-class="{'active':option.isActive == true}" class="option-nav-{{$index + 1}}"><span class="text">{{option.name}}</span><span ng-if="option.dropdowns != undefined &amp;&amp; dmkType=='vertical'" class="{{dmkIcon}} glyphicon glyphicon-chevron-right"></span><span ng-if="option.dropdowns != undefined &amp;&amp; dmkType!='vertical'" class="{{dmkIcon}} glyphicon glyphicon-chevron-bottom"></span>
+        <div ng-if="option.isActive == true &amp;&amp; option.dropdowns" class="dropdown-container">
+          <ul class="dropdown-list">
+            <li ng-if="dmkSearchFirst == true" ng-click="$event.stopPropagation()" class="search">
+              <input type="search" placeholder="{{dmkPlaceHolderFirst}}" ng-model="$parent.search1.name" class="search-input"/>
+            </li>
+            <li ng-repeat="dropdown in option.dropdowns | filter: search1 track by $index" ng-click="getNameDropdown(dropdown.name, dropdown.url, dropdown.subOptions, $parent.$index, $index); $event.stopPropagation()" ng-class="{'active':dropdown.isActive == true}" class="dropdown-nav-{{$index + 1}}"><span class="text2">{{dropdown.name}}</span><span ng-if="dropdown.subOptions &amp;&amp; (dmkType=='vertical' || dmkType=='horizontal')" class="{{dmkIcon}}-2 glyphicon glyphicon-chevron-right"></span><span ng-if="dropdown.subOptions &amp;&amp; dmkType=='mobile'" class="{{dmkIcon}}-2 glyphicon glyphicon-triangle-bottom"></span>
+              <div ng-if="dropdown.isActive == true &amp;&amp; dropdown.subOptions" class="submenu-container">
+                <ul class="submenu-list">
+                  <li ng-if="dmkSearchSecond == true" ng-click="$event.stopPropagation()" class="search">
+                    <input type="search" ng-model="$parent.search2.name" placeholder="{{dmkPlaceHolderSecond}}" class="search-input"/>
+                  </li>
+                  <li ng-repeat="suboption in dropdown.subOptions | filter: search2 track by $index" ng-click="getNameSubOption(suboption.name, suboption.url, $parent.$index, $index); $event.stopPropagation()" class="suboption-nav-{{$index + 1}}"><span class="text3">{{suboption.name}} </span></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

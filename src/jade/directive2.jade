@@ -1,0 +1,18 @@
+include ../mixins/head
+body
+  .content-desktop(ng-controller='LoadDataMenu')
+    h1 dmk-menu
+    h3 Horizontal menu
+    div(dmk-menu
+        dmk-icon="iconDropdown"
+        dmk-type="horizontal"
+        dmk-options="dmkOptions"
+        dmk-search-first="search1"
+        dmk-search-second="search2"
+        dmk-place-holder-first="placeHolder"
+        dmk-place-holder-second="placeHolder"
+        dmk-name-option="optionName"
+        dmk-url="urlOption")
+    p(style="margin: 50px") Scope: {{optionName}}
+    p(style="margin: 50px") Scope: {{urlOption}}
+  include ../mixins/scripts
