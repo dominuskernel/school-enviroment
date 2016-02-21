@@ -1,5 +1,5 @@
 var gulp            = require('gulp'),
-// this is an arbitrary object that loads all gulp plugins in package.json.
+// this is an arbitrary object that loads all gulp plugins in productpage.json.
     $           = require("gulp-load-plugins")(),
     browserSync = require('browser-sync'),
     coffeelint  = require("gulp-coffeelint"),

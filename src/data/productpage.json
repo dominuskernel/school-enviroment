@@ -1,0 +1,22 @@
+[
+  {
+    "product_name" : "Apple & Blueberry Dessert",
+    "price" : "£3.00"
+  },
+  {
+    "product_name" : "Apple & Pear Pudding",
+    "price" : "£3.50"
+  },
+  {
+    "product_name" : "Cottage Pie",
+    "price" : "£4.00"
+  },
+  {
+    "product_name" : "Mixed Vegetable Medley",
+    "price" : "£2.00"
+  },
+  {
+    "product_name" : "Creamy Rice Breakfast",
+    "price" : "£1.00"
+  }
+]

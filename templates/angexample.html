@@ -1,5 +1,7 @@
 
 <html lang="en" ng-app="app">
+  <!--ng-app="app" tells the browser that the `angular application in this web is called App and this is mentinoed at the botton o// of the app.js fine
+  -->
   <head>
     <meta charset="UTF-8"/>
     <title>Css Styles</title>
@@ -7,17 +9,22 @@
   </head>
 </html>
 <body ng-controller="ExampleWeb">
+  <!-- the controller "ExampleWeb" is the same specifies at the botton of app.js (row28) .controller('ExampleWeb',ExampleWeb);-->
   <h2>Angular Example</h2>
   <button type="button" ng-click="showList=!showList" class="btn btn-primary">Mostrar Lista</button>
   <div ng-show="showList==true">
     <ul class="list-group">
       <li ng-repeat="element in list.li">{{element}}</li>
+      <!--ng-repeat menas repeat me the content until the all the elements are displayed-->
     </ul>
   </div>
   <h3>Input    </h3>
   <input type="text" ng-model="greet"/>
-  <p>{{greet}} </p>
+  <!--ng-model means real time changes in the input field-->
+  <p>{{greet}}</p>
+  <!--angular scopes are countersigned by {{ then specified into the .js file-->
   <script type="text/ng-template" id="alert.html">
+    <!--ng-template it's including a template-->
     <div style="background-color:#fa39c3;color:white" role="alert" class="alert">
       <div ng-transclude="ng-transclude"></div>
     </div>
@@ -34,6 +41,7 @@
   <script src="../scripts/sendinputs.js"></script>
   <script src="../scripts/recordatory.js"></script>
   <script src="../scripts/ecmascript6.js"></script>
+  <script src="../scripts/review.js"></script>
   <script type="text/javascript" src="../scripts/directive.js"></script>
   <script type="text/javascript" src="../scripts/menu.js"></script>
   <script src="../scripts/app.js"></script>
